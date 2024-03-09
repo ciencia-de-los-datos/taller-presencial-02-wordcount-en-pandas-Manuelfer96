@@ -15,11 +15,10 @@ if not os.path.exists("output.txt"):
 #
 # Lee el contenido del archivo output.txt
 dataframe = pd.read_csv(
-    "output.txt", delimiter="\t", header=None, names=["word", "count"]
+    "output.txt", delimiter="\t", index_col=["word"]
 )
-dataframe = dataframe.set_index("word")
+# dataframe = dataframe.set_index("word")
 series = dataframe["count"]
-
 
 assert series["analytics"] == 5
 assert series["business"] == 7
